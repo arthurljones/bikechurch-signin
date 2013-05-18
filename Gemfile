@@ -4,7 +4,6 @@ gem 'sqlite3'
 gem 'jquery-rails'
 gem "haml-rails", ">= 0.4"
 gem "bootstrap-sass", ">= 2.3.0.0"
-gem "devise", ">= 2.2.3"
 gem "figaro", ">= 0.6.3"
 
 group :assets do
