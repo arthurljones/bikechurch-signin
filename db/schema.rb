@@ -11,7 +11,62 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518064510) do
+ActiveRecord::Schema.define(:version => 20130518180616) do
+
+  create_table "bikes", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "type"
+    t.string   "color"
+    t.string   "brand"
+    t.string   "model"
+    t.string   "serial"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "feedbacks", :force => true do |t|
+    t.string   "name"
+    t.text     "feedback"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "members", :force => true do |t|
+    t.integer  "person_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "mail_address"
+    t.string   "email_address"
+    t.string   "phone_number"
+    t.integer  "donation"
+    t.text     "notes"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "people", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "shop_occupants", :force => true do |t|
+    t.string   "person_id"
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "shop_times", :force => true do |t|
+    t.integer  "person_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.text     "notes"
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
