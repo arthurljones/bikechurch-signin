@@ -1,3 +1,3 @@
 class ShopTime < ActiveRecord::Base
-  attr_accessible :end, :notes, :person_id, :start, :type
+  attr_accessible :start_time, :end_time, :notes, :person_id, :type
 end
