@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe ShopTime do
+describe Visit do
   pending "add some examples to (or delete) #{__FILE__}"
 end

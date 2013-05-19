@@ -1,8 +1,8 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :shop_occupant do
-    person_id "MyString"
-    type ""
+  factory :occupant do
+    person { create(:person) }
+    purpose { Purpose.first or create(:purpose) }
   end
 end

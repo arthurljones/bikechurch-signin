@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :person do
-    first_name "MyString"
-    last_name "MyString"
+    sequence :first_name, "John"
+    sequence :last_name, "Smith"
   end
 end

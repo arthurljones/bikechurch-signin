@@ -2,11 +2,11 @@
 
 FactoryGirl.define do
   factory :bike do
-    person_id 1
-    type ""
-    color "MyString"
-    brand "MyString"
-    model "MyString"
-    serial "MyString"
+    person { Person.first or create(:person) }
+    bike_type { BikeType.first or create(:bike_type) }
+    color "Red"
+    brand "Miyata"
+    model "710"
+    serial "1234567ABC"
   end
 end

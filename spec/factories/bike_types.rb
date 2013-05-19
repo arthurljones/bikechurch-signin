@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :bike_type do
-    name "MyString"
+    sequence :name, "Road Bike"
   end
 end

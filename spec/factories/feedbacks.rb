@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :feedback do
-    name "MyString"
-    feedback "MyText"
+    feedback "I patched a tube."
   end
 end
