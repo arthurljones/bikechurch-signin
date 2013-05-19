@@ -8,6 +8,7 @@ gem "bootstrap-sass", ">= 2.3.0.0"
 gem "figaro", ">= 0.6.3"
 gem "awesome_print"
 gem "squeel"
+gem 'validates_timeliness', '~> 3.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
