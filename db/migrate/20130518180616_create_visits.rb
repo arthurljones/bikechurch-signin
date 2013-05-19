@@ -3,7 +3,7 @@ class CreateVisits < ActiveRecord::Migration
     create_table :visits do |t|
       t.integer :person_id, :null => false
       t.datetime :started, :null => false
-      t.string :purpose, :null => false
+      t.integer :purpose_id, :null => false
       t.datetime :ended
       t.text :notes
 
