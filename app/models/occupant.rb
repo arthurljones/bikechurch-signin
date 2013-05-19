@@ -5,4 +5,7 @@ class Occupant < ActiveRecord::Base
 
   accepts_nested_attributes_for :person
   attr_accessible :person_attributes
+
+  validates_presence_of :person
+  validates_presence_of :purpose
 end
