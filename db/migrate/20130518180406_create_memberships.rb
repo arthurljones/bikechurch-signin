@@ -1,6 +1,6 @@
-class CreateMembers < ActiveRecord::Migration
+class CreateMemberships < ActiveRecord::Migration
   def change
-    create_table :members do |t|
+    create_table :memberships do |t|
       t.integer :person_id
       t.date :start_date
       t.date :end_date
@@ -12,5 +12,7 @@ class CreateMembers < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :memberships, :person_id
   end
 end

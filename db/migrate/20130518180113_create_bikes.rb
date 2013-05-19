@@ -1,7 +1,7 @@
 class CreateBikes < ActiveRecord::Migration
   def change
     create_table :bikes do |t|
-      t.integer :person_id
+      t.integer :owner_id
       t.string :type
       t.string :color
       t.string :brand
@@ -10,5 +10,7 @@ class CreateBikes < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :bikes, :owner_id
   end
 end

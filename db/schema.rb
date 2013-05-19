@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20130518180616) do
 
   create_table "bikes", :force => true do |t|
-    t.integer  "person_id"
+    t.integer  "owner_id"
     t.string   "type"
     t.string   "color"
     t.string   "brand"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20130518180616) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "bikes", ["owner_id"], :name => "index_bikes_on_owner_id"
+
   create_table "feedbacks", :force => true do |t|
     t.string   "name"
     t.text     "feedback"
@@ -31,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20130518180616) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "members", :force => true do |t|
+  create_table "memberships", :force => true do |t|
     t.integer  "person_id"
     t.date     "start_date"
     t.date     "end_date"
@@ -44,47 +46,40 @@ ActiveRecord::Schema.define(:version => 20130518180616) do
     t.datetime "updated_at",    :null => false
   end
 
+  add_index "memberships", ["person_id"], :name => "index_memberships_on_person_id"
+
+  create_table "occupants", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "purpose"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "occupants", ["person_id"], :name => "index_occupants_on_person_id"
+
   create_table "people", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "bikes_count"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
-  create_table "shop_occupants", :force => true do |t|
-    t.string   "person_id"
-    t.string   "type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+  add_index "people", ["first_name", "last_name"], :name => "index_people_on_first_name_and_last_name"
+  add_index "people", ["first_name"], :name => "index_people_on_first_name"
+  add_index "people", ["last_name"], :name => "index_people_on_last_name"
 
-  create_table "shop_times", :force => true do |t|
+  create_table "visits", :force => true do |t|
     t.integer  "person_id"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.datetime "started"
+    t.datetime "ended"
     t.text     "notes"
-    t.string   "type"
+    t.string   "purpose"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "name"
-  end
-
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "visits", ["person_id"], :name => "index_visits_on_person_id"
+  add_index "visits", ["purpose"], :name => "index_visits_on_purpose"
 
 end
