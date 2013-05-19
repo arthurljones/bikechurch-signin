@@ -1,7 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :member do
+  factory :membership do
     person_id 1
     start_date "2013-05-18"
     end_date "2013-05-18"
