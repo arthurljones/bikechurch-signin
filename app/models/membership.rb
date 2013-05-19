@@ -6,5 +6,5 @@ class Membership < ActiveRecord::Base
   validates_presence_of :person
   validates_uniqueness_of :person
   validates_date :start_date
-  validates_date :end_date, :after :start_date
+  validates_date :end_date, :after => :start_date
 end

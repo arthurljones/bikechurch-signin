@@ -7,5 +7,5 @@ class Occupant < ActiveRecord::Base
   attr_accessible :person_attributes
 
   validates_presence_of :person
-  validate_uniqueness_of :person
+  validates_uniqueness_of :person
 end
