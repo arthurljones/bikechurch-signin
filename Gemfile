@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
+
 gem 'rails', '3.2.11'
 gem 'sqlite3'
 gem 'jquery-rails'
 gem "haml-rails", ">= 0.4"
 gem "bootstrap-sass", ">= 2.3.0.0"
 gem "figaro", ">= 0.6.3"
+gem "awesome_print"
+gem "squeel"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -16,6 +19,9 @@ group :development do
   gem "html2haml", ">= 1.0.1"
   gem "quiet_assets", ">= 1.0.2"
   gem "better_errors", ">= 0.7.2"
+
+  gem 'mysql2'
+  gem "activerecord-mysql-adapter"
 end
 
 group :development,  :test do
