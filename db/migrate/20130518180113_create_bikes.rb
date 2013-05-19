@@ -2,7 +2,7 @@ class CreateBikes < ActiveRecord::Migration
   def change
     create_table :bikes do |t|
       t.integer :owner_id
-      t.string :type
+      t.string :kind
       t.string :color
       t.string :brand
       t.string :model
