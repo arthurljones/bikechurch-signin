@@ -4,4 +4,5 @@ class BikeType < ActiveRecord::Base
   has_many :bikes
 
   validates_presence_of :name
+  validates_uniqueness_of :name
 end
